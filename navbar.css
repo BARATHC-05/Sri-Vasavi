@@ -1,0 +1,198 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    font-family: 'Poppins', sans-serif;
+    user-select: none;
+} nav{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 15px;
+    box-sizing: border-box;
+    width: 100%;
+    height: 60px;
+    background: black;
+    box-shadow: 0 4px 4px black;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav .logo{
+    cursor: pointer;
+}
+
+nav .logo h1{
+    color: #30bfff;
+}
+
+nav .navigation{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav .navigation ul{ 
+    display: flex;
+    z-index: 1;
+}
+
+nav .navigation ul li{
+    list-style-type: none;
+    margin: 0 1px;
+}
+
+nav .navigation ul li a{
+    display: block;
+    padding: 1px 10px;
+    text-decoration: none;
+    color: white;
+    position: relative;
+}
+
+nav .navigation ul li a.active::before{
+    height: 90%;
+}
+
+nav .navigation ul li a::before{
+    position: absolute;
+    content: '';
+    bottom: 0;
+    left: 0;
+    width: 3px;
+    height: 0;
+    background: #30bfff;
+}
+
+nav .navigation ul li a:hover::before{
+    height: 90%;
+    transition: .2s;
+}
+
+nav .navigation .hamburger{
+    position: relative;
+    width: 25px;
+    height: 3px;
+    border-radius: 10px;
+    cursor: pointer;
+    z-index: 2;
+    background: white;
+}
+
+nav .navigation .hamburger::before,.hamburger::after{
+    position: absolute;
+    content: '';
+    height: 3px;
+    width: 25px;
+    background: white;
+    border-radius: 10px;
+    transition: .1s;
+}
+
+nav .navigation .hamburger::before{
+    right: 0;
+    top: -8px;
+}
+
+nav .navigation .hamburger::after{
+    left: 0;
+    top: 8px;
+}
+
+nav .navigation .toogle-menu{
+    position: absolute;
+    width: 30px;
+    opacity: 0;
+    z-index: 3;
+    cursor: pointer;
+}
+
+nav .navigation .hamburger,.toogle-menu{
+    display: none;
+}
+
+nav .navigation input:checked ~ .hamburger{
+    background: transparent;
+}
+
+nav .navigation input:checked ~ .hamburger::before{
+    top: 0;
+    transform: rotate(45deg);
+    width: 25px;
+}
+
+nav .navigation input:checked ~ .hamburger::after{
+    top: 0;
+    transform: rotate(-45deg);
+    width: 25px;
+}
+
+nav .navigation input:checked ~ ul{
+    right: 0;
+    transition: .4s;
+}
+@media(max-width: 1000px){
+    nav{
+        justify-content: space-between;
+    }
+
+    nav .navigation .hamburger,.toogle-menu{
+        display: block;
+    }
+
+    nav .navigation ul{ 
+        justify-content: start;
+        flex-direction: column;
+        align-items: center;
+        position: fixed;
+        background: black;
+        width: 100%;
+        top: 60px;
+        z-index: 10;
+        right: -120%;
+        padding: 70px 10px;
+        box-sizing: border-box;
+    }
+
+    nav .navigation ul li{ 
+        display: block;
+        padding: 20px 17px;
+        border-bottom: 1px solid rgb(51, 50, 50);
+        text-align: center;
+    }
+}
+@media screen and (max-width: 500px)
+{
+    nav{
+        justify-content: space-between;
+    }
+
+    nav .navigation .hamburger,.toogle-menu{
+        display: block;
+    }
+
+    nav .navigation ul{ 
+        justify-content: start;
+        flex-direction: column;
+        align-items: center;
+        position: fixed;
+        background: black;
+        width: 100%;
+        top: 60px;
+        z-index: 10;
+        right: -120%;
+        padding: 70px 10px;
+        box-sizing: border-box;
+    }
+
+    nav .navigation ul li{ 
+        display: block;
+        padding: 20px 17px;
+        border-bottom: 1px solid rgb(51, 50, 50);
+        /*text-align: center;*/
+    } 
+}
